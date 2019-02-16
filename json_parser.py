@@ -68,7 +68,10 @@ if __name__ == "__main__":
     auth = OAuth1(API_KEY, API_SECRET, ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
     requests.get(url, auth=auth)
 
+    print("Enter screen_name of Twitter account (after@):\n")
+    screen_name = input()
+
     r = requests.get(
-        'https://api.twitter.com/1.1/friends/list.json?screen_name=imaginedragons', auth=auth)
+        'https://api.twitter.com/1.1/friends/list.json?screen_name=' + screen_name, auth=auth)
 
     navigate(r.json(), r.json(), [])
